@@ -49,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .failureUrl("/login?error")
                 .and()
+            .logout().permitAll().and()
             .exceptionHandling()
                 .accessDeniedPage("/403");
         		

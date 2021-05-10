@@ -1,5 +1,5 @@
 body {
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 
 .header {
@@ -30,11 +30,43 @@ body {
   &__wrap-right-site {
     display: flex;
     justify-content: space-between;
+
+    .dropdown {
+      display: flex;
+      align-items: center;
+
+    }
+
+    a.is-authen {
+      color: #f4f4f4;
+    }
+
+    .is-authen {
+      width: 220px;
+
+      .user__right-site {
+        h5 {
+          margin-bottom: 0;
+          font-size: 14px;
+          text-overflow: ellipsis !important;
+          display: inline-block;
+          width: 130px;
+          white-space: nowrap;
+          overflow: hidden !important;
+        }
+      }
+    }
+
     &__user {
       display: flex;
       align-items: center;
       .user {
         &__left-site {
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
           svg {
             color: #f0f0f0;
           }
