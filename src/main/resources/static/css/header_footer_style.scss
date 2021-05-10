@@ -34,7 +34,16 @@ body {
     .dropdown {
       display: flex;
       align-items: center;
-
+      .dropdown-menu {
+        .dropdown-item {
+          input[type="submit"] {
+            border: none;
+            background: transparent;
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
     }
 
     a.is-authen {
