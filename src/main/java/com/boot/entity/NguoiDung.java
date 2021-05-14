@@ -2,15 +2,9 @@ package com.boot.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "nguoi_dung")
@@ -37,6 +31,25 @@ public class NguoiDung implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	@OneToMany(mappedBy = "nguoiDung")
+	private Set<DiaChi> diaChis;
+
+	@Override
+	public String toString() {
+		return "NguoiDung{" +
+				"id=" + id +
+				", hoTenDem='" + hoTenDem + '\'' +
+				", ten='" + ten + '\'' +
+				", ngaySinh=" + ngaySinh +
+				", soDienThoai='" + soDienThoai + '\'' +
+				", gioiTinh=" + gioiTinh +
+				", avatar='" + avatar + '\'' +
+				", diaChi='" + diaChi + '\'' +
+				", user=" + user +
+				", diaChis=" + diaChis +
+				'}';
+	}
 
 	public int getId() {
 		return id;
@@ -110,9 +123,18 @@ public class NguoiDung implements Serializable {
 		this.user = user;
 	}
 
-	public NguoiDung(int id, String hoTenDem, String ten, Date ngaySinh, String soDienThoai, boolean gioiTinh,
-			String avatar, String diaChi, User user) {
-		super();
+	public Set<DiaChi> getDiaChis() {
+		return diaChis;
+	}
+
+	public void setDiaChis(Set<DiaChi> diaChis) {
+		this.diaChis = diaChis;
+	}
+
+	public NguoiDung() {
+	}
+
+	public NguoiDung(int id, String hoTenDem, String ten, Date ngaySinh, String soDienThoai, boolean gioiTinh, String avatar, String diaChi, User user, Set<DiaChi> diaChis) {
 		this.id = id;
 		this.hoTenDem = hoTenDem;
 		this.ten = ten;
@@ -122,19 +144,6 @@ public class NguoiDung implements Serializable {
 		this.avatar = avatar;
 		this.diaChi = diaChi;
 		this.user = user;
+		this.diaChis = diaChis;
 	}
-
-	public NguoiDung() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "NguoiDung [id=" + id + ", hoTenDem=" + hoTenDem + ", ten=" + ten + ", ngaySinh=" + ngaySinh
-				+ ", soDienThoai=" + soDienThoai + ", gioiTinh=" + gioiTinh + ", avatar=" + avatar + ", diaChi="
-				+ diaChi + ", user=" + user + "]";
-	}
-	
-	
-	
 }
