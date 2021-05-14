@@ -56,6 +56,7 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
             NguoiDung nguoiDung = new NguoiDung();
             nguoiDung.setHoTenDem("Truong Duc");
             nguoiDung.setTen("Hoan");
+            nguoiDung.setSoDienThoai("0349380770");
             nguoiDung.setUser(admin);
             userRepository.save(admin);
             nguoiDungRepository.save(nguoiDung);
@@ -72,6 +73,7 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
             NguoiDung nguoiDung = new NguoiDung();
             nguoiDung.setHoTenDem("Truong Duc");
             nguoiDung.setTen("Hoan");
+            nguoiDung.setSoDienThoai("0349380770");
             nguoiDung.setUser(user);
             userRepository.save(user);
             nguoiDungRepository.save(nguoiDung);
