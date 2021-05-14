@@ -31,20 +31,12 @@ public class Role implements Serializable {
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users;
 
-	public Role(int id, String name, Set<User> users) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.users = users;
-	}
-
-	public Role() {
-		super();
-	}
-
-	public Role(String string) {
-		// TODO Auto-generated constructor stub
-		this.name = string;
+	@Override
+	public String toString() {
+		return "Role{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				'}';
 	}
 
 	public int getId() {
@@ -63,22 +55,15 @@ public class Role implements Serializable {
 		this.name = name;
 	}
 
-	public Set<User> getUsers() {
-		return users;
+	public Role(int id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
+	public Role(String roleName) {
+		this.name = roleName;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public Role() {
 	}
-
-	@Override
-	public String toString() {
-		return "Role [id=" + id + ", name=" + name + ", users=" + users + "]";
-	}
-	
-	
 }

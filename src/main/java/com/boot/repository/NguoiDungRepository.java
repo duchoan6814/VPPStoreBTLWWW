@@ -7,6 +7,6 @@ import com.boot.entity.NguoiDung;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface NguoiDungRepository extends CrudRepository<NguoiDung, Integer>, NguoiDungRepositoryCustom {
-
+public interface NguoiDungRepository extends CrudRepository<NguoiDung, Integer> {
+    NguoiDung findByUser(User user);
 }

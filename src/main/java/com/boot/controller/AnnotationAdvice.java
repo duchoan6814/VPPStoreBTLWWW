@@ -13,10 +13,21 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @ControllerAdvice
 public class AnnotationAdvice {
 
-    @ModelAttribute("user")
-    public String getNguoiDungLogin() {
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private NguoiDungRepository nguoiDungRepository;
+
+    @ModelAttribute("nguoiDung")
+    public NguoiDung getNguoiDungLogin() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.getName();
+
+        User user = userRepository.findByEmail(authentication.getName());
+
+        NguoiDung nguoiDung = nguoiDungRepository.findByUser(user);
+
+        return nguoiDung;
     }
 
 
