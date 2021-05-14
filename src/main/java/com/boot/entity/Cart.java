@@ -10,10 +10,31 @@ public class Cart implements Serializable {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "nguoi_dung_id", nullable = false)
     private NguoiDung nguoiDung;
 
     @OneToMany(mappedBy = "cart")
     private Set<ChiTietHoaDon> chiTietHoaDons;
 
+    public Cart(Set<ChiTietHoaDon> chiTietHoaDons) {
+        this.chiTietHoaDons = chiTietHoaDons;
+    }
+
+    public Cart() {
+    }
+
+    public Set<ChiTietHoaDon> getChiTietHoaDons() {
+        return chiTietHoaDons;
+    }
+
+    public void setChiTietHoaDons(Set<ChiTietHoaDon> chiTietHoaDons) {
+        this.chiTietHoaDons = chiTietHoaDons;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "chiTietHoaDons=" + chiTietHoaDons +
+                '}';
+    }
 }

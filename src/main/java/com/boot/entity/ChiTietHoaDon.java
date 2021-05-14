@@ -29,4 +29,38 @@ public class ChiTietHoaDon implements Serializable {
     public double tinhGiaBan() {
         return 0;
     }
+
+    public ChiTietHoaDon(int soLuong, SanPham sanPham) {
+        this.soLuong = soLuong;
+        this.sanPham = sanPham;
+    }
+
+    public ChiTietHoaDon() {
+    }
+
+    @Override
+    public String toString() {
+        return "ChiTietHoaDon{" +
+                "soLuong=" + soLuong +
+                ", sanPham=" + sanPham +
+                ", hoaDon=" + hoaDon +
+                ", cart=" + cart +
+                '}';
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+
+    public SanPham getSanPham() {
+        return sanPham;
+    }
+
+    public void setSanPham(SanPham sanPham) {
+        this.sanPham = sanPham;
+    }
 }

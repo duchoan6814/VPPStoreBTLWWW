@@ -16,4 +16,29 @@ public class TheLoai implements Serializable {
 
     @OneToOne(mappedBy = "theLoai")
     private SanPham sanPham;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTen() {
+        return ten;
+    }
+
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
+
+    public TheLoai() {
+    }
+
+    public TheLoai(String id, String ten, SanPham sanPham) {
+        this.id = id;
+        this.ten = ten;
+        this.sanPham = sanPham;
+    }
 }

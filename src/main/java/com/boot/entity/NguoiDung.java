@@ -41,20 +41,21 @@ public class NguoiDung implements Serializable {
 	@OneToOne(mappedBy = "nguoiDung")
 	private Cart cart;
 
-	@Override
-	public String toString() {
-		return "NguoiDung{" +
-				"id=" + id +
-				", hoTenDem='" + hoTenDem + '\'' +
-				", ten='" + ten + '\'' +
-				", ngaySinh=" + ngaySinh +
-				", soDienThoai='" + soDienThoai + '\'' +
-				", gioiTinh=" + gioiTinh +
-				", avatar='" + avatar + '\'' +
-				", diaChi='" + diaChi + '\'' +
-				", user=" + user +
-				", diaChis=" + diaChis +
-				'}';
+	public NguoiDung(int id, String hoTenDem, String ten, Date ngaySinh, String soDienThoai, boolean gioiTinh, String avatar, String diaChi, User user, Set<DiaChi> diaChis, Cart cart) {
+		this.id = id;
+		this.hoTenDem = hoTenDem;
+		this.ten = ten;
+		this.ngaySinh = ngaySinh;
+		this.soDienThoai = soDienThoai;
+		this.gioiTinh = gioiTinh;
+		this.avatar = avatar;
+		this.diaChi = diaChi;
+		this.user = user;
+		this.diaChis = diaChis;
+		this.cart = cart;
+	}
+
+	public NguoiDung() {
 	}
 
 	public int getId() {
@@ -137,19 +138,19 @@ public class NguoiDung implements Serializable {
 		this.diaChis = diaChis;
 	}
 
-	public NguoiDung() {
+	public Set<HoaDon> getHoaDons() {
+		return hoaDons;
 	}
 
-	public NguoiDung(int id, String hoTenDem, String ten, Date ngaySinh, String soDienThoai, boolean gioiTinh, String avatar, String diaChi, User user, Set<DiaChi> diaChis) {
-		this.id = id;
-		this.hoTenDem = hoTenDem;
-		this.ten = ten;
-		this.ngaySinh = ngaySinh;
-		this.soDienThoai = soDienThoai;
-		this.gioiTinh = gioiTinh;
-		this.avatar = avatar;
-		this.diaChi = diaChi;
-		this.user = user;
-		this.diaChis = diaChis;
+	public void setHoaDons(Set<HoaDon> hoaDons) {
+		this.hoaDons = hoaDons;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 }
