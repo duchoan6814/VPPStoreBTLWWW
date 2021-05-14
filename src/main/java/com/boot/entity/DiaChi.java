@@ -7,11 +7,6 @@ import java.io.Serializable;
 @Table(name = "DIA_CHI")
 public class DiaChi implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private String id;
-
     @Column(name = "phuong_xa", nullable = false)
     private String phuongXa;
     @Column(name = "quan_huyen", nullable = false)
@@ -19,6 +14,7 @@ public class DiaChi implements Serializable {
     @Column(name = "tinh_thanhpho", nullable = false)
     private String tinhThanhPho;
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "nguoi_dung_id", nullable = false)
     private NguoiDung nguoiDung;
@@ -26,20 +22,11 @@ public class DiaChi implements Serializable {
     @Override
     public String toString() {
         return "DiaChi{" +
-                "id='" + id + '\'' +
-                ", phuongXa='" + phuongXa + '\'' +
+                "phuongXa='" + phuongXa + '\'' +
                 ", quanHuyen='" + quanHuyen + '\'' +
                 ", tinhThanhPho='" + tinhThanhPho + '\'' +
                 ", nguoiDung=" + nguoiDung +
                 '}';
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getPhuongXa() {
@@ -77,8 +64,7 @@ public class DiaChi implements Serializable {
     public DiaChi() {
     }
 
-    public DiaChi(String id, String phuongXa, String quanHuyen, String tinhThanhPho, NguoiDung nguoiDung) {
-        this.id = id;
+    public DiaChi(String phuongXa, String quanHuyen, String tinhThanhPho, NguoiDung nguoiDung) {
         this.phuongXa = phuongXa;
         this.quanHuyen = quanHuyen;
         this.tinhThanhPho = tinhThanhPho;

@@ -35,6 +35,12 @@ public class NguoiDung implements Serializable {
 	@OneToMany(mappedBy = "nguoiDung")
 	private Set<DiaChi> diaChis;
 
+	@OneToMany(mappedBy = "nguoiDung")
+	private Set<HoaDon> hoaDons;
+
+	@OneToOne(mappedBy = "nguoiDung")
+	private Cart cart;
+
 	@Override
 	public String toString() {
 		return "NguoiDung{" +
