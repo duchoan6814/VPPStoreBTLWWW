@@ -24,12 +24,10 @@
         </p>
         <div class="main-content login__form__wrap-form pt-3">
 
-            <form class="m-auto" th:action="@{/perform_login}" method="POST">
+            <form class="m-auto" th:action="@{/register}" method="POST">
                 <div class="form-group row">
                     <div class="col">
-                        <p th:if="${param.error}" class="error">Email hoặc mật khẩu
-                            không chính xác!</p>
-                        <p th:if="${param.logout}" class="success">Bạn đã đăng xuất.</p>
+                        <p th:if="${param.failure}" class="error">Email đã tồn tại, vui lòng chọn email khác</p>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -44,7 +42,7 @@
                     <label for="inputTen" class="col-12 col-form-label">Tên<span
                             class="text-danger ml-1">*</span></label>
                     <div class="col-12">
-                        <input type="text" name="text" class="form-control" id="inputTen">
+                        <input type="text" name="ten" class="form-control" id="inputTen">
                     </div>
                     <p class="col-12 text-danger mb-0" id="tbTen"></p>
                 </div>
@@ -68,7 +66,7 @@
                     <label for="inputMatKhau" class="col-12 col-form-label">Mật khẩu<span
                             class="text-danger ml-1">*</span></label>
                     <div class="col-12">
-                        <input type="password" name="password" class="form-control" id="inputMatKhau">
+                        <input type="password" name="matKhau" class="form-control" id="inputMatKhau">
                     </div>
                     <p class="col-12 text-danger mb-0" id="tbMatKhau"></p>
                 </div>
@@ -76,7 +74,7 @@
                     <label for="inputNhapLaiMatKhau" class="col-12 col-form-label">Nhập lại mật khẩu<span
                             class="text-danger ml-1">*</span></label>
                     <div class="col-12">
-                        <input type="password" name="nhapLaiPassword" class="form-control" id="inputNhapLaiMatKhau">
+                        <input type="password" name="nhapLaiMatKhau" class="form-control" id="inputNhapLaiMatKhau">
                     </div>
                     <p class="col-12 text-danger mb-0" id="tbNhapLaiMatKhau"></p>
                 </div>
