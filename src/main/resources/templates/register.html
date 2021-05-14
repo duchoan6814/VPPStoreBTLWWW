@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{main-layout.html}">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/login_style.css}">
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+
+<body>
+<div layout:fragment="content" class="login container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="@{/user}">Tài khoản</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Đăng ký</li>
+        </ol>
+    </nav>
+    <div class="login__form my-5">
+        <h5>Đăng ký tài khoản</h5>
+        <p>
+            Bạn đã có tài khoản <a th:href="@{/login}">Đăng nhập tại đây</a>
+        </p>
+        <div class="main-content login__form__wrap-form pt-3">
+
+            <form class="m-auto" th:action="@{/register}" method="POST">
+                <div class="form-group row">
+                    <div class="col">
+                        <p th:if="${param.failure}" class="error">Email đã tồn tại, vui lòng chọn email khác</p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputHo" class="col-12 col-form-label">Họ tên đệm<span
+                            class="text-danger ml-1">*</span></label>
+                    <div class="col-12 mb-1">
+                        <input type="text" name="hoTenDem" class="form-control" id="inputHo">
+                    </div>
+                    <p class="col-12 text-danger mb-0" id="tbHoTenDem"></p>
+                </div>
+                <div class="form-group row">
+                    <label for="inputTen" class="col-12 col-form-label">Tên<span
+                            class="text-danger ml-1">*</span></label>
+                    <div class="col-12">
+                        <input type="text" name="ten" class="form-control" id="inputTen">
+                    </div>
+                    <p class="col-12 text-danger mb-0" id="tbTen"></p>
+                </div>
+                <div class="form-group row">
+                    <label for="inputSDT" class="col-12 col-form-label">Số điện thoại<span
+                            class="text-danger ml-1">*</span></label>
+                    <div class="col-12">
+                        <input type="number" name="soDienThoai" class="form-control" id="inputSDT">
+                    </div>
+                    <p class="col-12 text-danger mb-0" id="tbSoDienThoai"></p>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail" class="col-12 col-form-label">Email<span
+                            class="text-danger ml-1">*</span></label>
+                    <div class="col-12">
+                        <input required type="email" name="email" class="form-control" id="inputEmail">
+                    </div>
+                    <p class="col-12 text-danger mb-0"></p>
+                </div>
+                <div class="form-group row">
+                    <label for="inputMatKhau" class="col-12 col-form-label">Mật khẩu<span
+                            class="text-danger ml-1">*</span></label>
+                    <div class="col-12">
+                        <input type="password" name="matKhau" class="form-control" id="inputMatKhau">
+                    </div>
+                    <p class="col-12 text-danger mb-0" id="tbMatKhau"></p>
+                </div>
+                <div class="form-group row">
+                    <label for="inputNhapLaiMatKhau" class="col-12 col-form-label">Nhập lại mật khẩu<span
+                            class="text-danger ml-1">*</span></label>
+                    <div class="col-12">
+                        <input type="password" name="nhapLaiMatKhau" class="form-control" id="inputNhapLaiMatKhau">
+                    </div>
+                    <p class="col-12 text-danger mb-0" id="tbNhapLaiMatKhau"></p>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col">
+                        <button type="submit" id="btnSubmit" class="btn btn-primary btn-block m-auto">
+                            Đăng ký
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script layout:fragment="script" th:src="@{\js\register.js}"></script>
+</body>
+</html>
