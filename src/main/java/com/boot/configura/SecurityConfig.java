@@ -19,45 +19,46 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+    @Autowired
+    private UserDetailsService userDetailsService;
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-	}
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
 
-		http
-		.authorizeRequests()
-		.antMatchers("/admin").hasRole("ADMIN")
-		.anyRequest().permitAll()
-		.and()
-		.formLogin()
-		.loginPage("/user/login")
-		.loginProcessingUrl("/perform_login")
-		.usernameParameter("email")
-		.passwordParameter("password")
-		.defaultSuccessUrl("/")
-		.failureUrl("/user/login?error")
-		.and()
-		.logout()
-		.logoutUrl("/perform_logout")
-		.invalidateHttpSession(true)
-		.deleteCookies("JSESSIONID")
-		.and()
-		.exceptionHandling()
-		.accessDeniedPage("/403");
+        http
+                .authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/user").hasAnyRole("ADMIN,MEMBER")
+                .anyRequest().permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/user/login")
+                .loginProcessingUrl("/perform_login")
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/")
+                .failureUrl("/user/login?error")
+                .and()
+                .logout()
+                .logoutUrl("/perform_logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/403");
 
-	}
+    }
 
 
 }

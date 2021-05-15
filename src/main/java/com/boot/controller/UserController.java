@@ -33,6 +33,11 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @GetMapping("/")
+    public String getUser() {
+        return "infor";
+    }
+
     @GetMapping("/login")
     public String getLogin() {
         return "login";
