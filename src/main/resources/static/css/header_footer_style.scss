@@ -126,6 +126,18 @@ body {
               display: block;
             }
           }
+
+          &:hover {
+            background-color: #f0f0f0;
+
+            p.mx-3 {
+              color: #ec1c24;
+            }
+
+            svg {
+              color: #ec1c24;
+            }
+          }
         }
       }
     }

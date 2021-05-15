@@ -35,7 +35,7 @@ public class SanPham implements Serializable {
     @OneToMany(mappedBy = "sanPham")
     private Set<MauSac> mauSacs;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "the_loai_id", nullable = false)
     private TheLoai theLoai;
 

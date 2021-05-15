@@ -148,6 +148,18 @@ body {
   display: block;
 }
 
+.header__wrap-right-site__gio-hang .gio-hang__wrap-gio-hang:hover {
+  background-color: #f0f0f0;
+}
+
+.header__wrap-right-site__gio-hang .gio-hang__wrap-gio-hang:hover p.mx-3 {
+  color: #ec1c24;
+}
+
+.header__wrap-right-site__gio-hang .gio-hang__wrap-gio-hang:hover svg {
+  color: #ec1c24;
+}
+
 .under-navbar {
   display: -webkit-box;
   display: -ms-flexbox;

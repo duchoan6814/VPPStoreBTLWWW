@@ -2,6 +2,7 @@ package com.boot.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "the_loai")
@@ -14,8 +15,16 @@ public class TheLoai implements Serializable {
     @Column(name = "ten", nullable = false)
     private String ten;
 
-    @OneToOne(mappedBy = "theLoai")
-    private SanPham sanPham;
+    @OneToMany(mappedBy = "theLoai")
+    private List<SanPham> sanPhams;
+
+    public TheLoai() {
+    }
+
+    public TheLoai(String id, String ten) {
+        this.id = id;
+        this.ten = ten;
+    }
 
     public String getId() {
         return id;
@@ -33,12 +42,11 @@ public class TheLoai implements Serializable {
         this.ten = ten;
     }
 
-    public TheLoai() {
-    }
-
-    public TheLoai(String id, String ten, SanPham sanPham) {
-        this.id = id;
-        this.ten = ten;
-        this.sanPham = sanPham;
+    @Override
+    public String toString() {
+        return "TheLoai{" +
+                "id='" + id + '\'' +
+                ", ten='" + ten + '\'' +
+                '}';
     }
 }
