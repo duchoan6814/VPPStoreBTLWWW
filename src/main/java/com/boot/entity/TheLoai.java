@@ -1,5 +1,7 @@
 package com.boot.entity;
 
+import org.hibernate.annotations.Nationalized;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -13,6 +15,7 @@ public class TheLoai implements Serializable {
     private String id;
 
     @Column(name = "ten", nullable = false)
+    @Nationalized
     private String ten;
 
     @OneToMany(mappedBy = "theLoai")

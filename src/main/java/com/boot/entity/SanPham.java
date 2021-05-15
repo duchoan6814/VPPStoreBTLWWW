@@ -1,5 +1,7 @@
 package com.boot.entity;
 
+import org.hibernate.annotations.Nationalized;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -14,15 +16,18 @@ public class SanPham implements Serializable {
     private String id;
 
     @Column(name = "ten", nullable = false)
+    @Nationalized
     private String ten;
 
     @Column(name = "thuong_hieu", nullable = true)
+    @Nationalized
     private String thuongHieu;
 
     @Column(name = "gia", nullable = false)
     private double gia;
 
     @Column(name = "mo_ta")
+    @Nationalized
     private String moTa;
 
     @ElementCollection

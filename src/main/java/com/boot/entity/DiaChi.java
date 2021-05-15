@@ -1,5 +1,7 @@
 package com.boot.entity;
 
+import org.hibernate.annotations.Nationalized;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -8,10 +10,13 @@ import java.io.Serializable;
 public class DiaChi implements Serializable {
 
     @Column(name = "phuong_xa", nullable = false)
+    @Nationalized
     private String phuongXa;
     @Column(name = "quan_huyen", nullable = false)
+    @Nationalized
     private String quanHuyen;
     @Column(name = "tinh_thanhpho", nullable = false)
+    @Nationalized
     private String tinhThanhPho;
 
     @Id

@@ -1,5 +1,7 @@
 package com.boot.entity;
 
+import org.hibernate.annotations.Nationalized;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -13,6 +15,7 @@ public class MauSac implements Serializable {
     private SanPham sanPham;
 
     @Column(name = "ten", nullable = false)
+    @Nationalized
     private String ten;
     @Column(name = "ma_mau", nullable = false)
     private String maMau;
